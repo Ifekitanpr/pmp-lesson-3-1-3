@@ -50,33 +50,33 @@ const framework = [
   {
     name: "Levels",
     icon: Users,
-    kicker: "The chain itself",
-    text: "Issues climb only as far as the authority they need. Teams handle local calls inside tolerance; project managers own cross-functional commitments; sponsors and steering committees absorb strategic, financial, regulatory, or reputational risk.",
-    note: "The sponsor is the PM’s primary escalation point — the lever for resources and cross-functional ties.",
+    kicker: "Escalation Levels — the chain itself",
+    text: "This is the ladder an issue climbs, and each rung is defined by the type of authority it needs. At the team level, issues stay local — schedule tweaks, technical calls, minor quality variances that fall inside agreed tolerance; the people closest to the work resolve it without ceremony. Once an issue touches scope, schedule commitments, or coordination across teams, it moves to the project manager, who holds the cross-functional view the team doesn't. And when the stakes turn strategic, financial, regulatory, or reputational, it goes to the steering committee or executive sponsor — the only level with the authority to absorb that kind of risk. PMBOK® 8 is specific here: the sponsor is named as the PM's primary escalation point, the lever that unlocks resources and breaks ties across departments that the PM alone can't move.",
+    note: "The sponsor is the PM's primary escalation point, the lever that unlocks resources and breaks ties across departments that the PM alone can't move.",
     image: levelsImg,
   },
   {
     name: "Triggers",
     icon: BellRing,
-    kicker: "What makes movement mandatory",
-    text: "A trigger converts ‘I could escalate’ into ‘I must.’ Typical tripwires include cost or schedule variance beyond tolerance, material scope change, regulatory exposure, and any safety or ethical concern.",
-    note: "A threshold makes the investment decision concrete and unmissable.",
+    kicker: "Triggers and Thresholds — what makes escalation mandatory, not optional",
+    text: "A trigger turns \"I could escalate this\" into \"I must.\" Common ones include a budget overrun crossing a defined percentage, a schedule variance exceeding agreed tolerance, a scope change material enough to shift outcomes, a regulatory or legal risk capable of halting progress, and any safety or ethical concern demanding immediate attention. PMBOK® 8 connects this directly to investment control — the formal stewardship of project funding — which often builds in explicit decision points during design and build phases specifically to ask whether continued investment still makes business sense. Thresholds are what turn that abstract check into something concrete and unmissable.",
+    note: "A trigger turns \"I could escalate this\" into \"I must.\"",
     image: triggersImg,
   },
   {
     name: "Protocols",
     icon: Network,
-    kicker: "How information travels",
-    text: "Agree on the medium, who needs visibility, and the response time. A critical issue sitting inside a 48-hour silence window is already a governance failure.",
-    note: "A route without a communication protocol is only a diagram.",
+    kicker: "Communication Protocols — how escalation actually moves",
+    text: "Having a path means nothing if nobody agrees on how information travels along it. This component nails down the medium — is this a structured written report, a scheduled meeting, or an immediate notification? — who else needs visibility beyond the decision-maker, and what response time is expected. That last detail matters more than it sounds: a critical issue sitting inside a 48-hour silence window isn't a minor gap, it's a governance failure already underway. Clarity here is what stops an escalated issue from disappearing into the space between two people's job descriptions.",
+    note: "Clarity stops an escalated issue from disappearing into the space between two people's job descriptions.",
     image: protocolsImg,
   },
   {
     name: "Resolution",
     icon: RefreshCw,
-    kicker: "Where the loop closes",
-    text: "Define who decides, how the decision is documented, and how the resolution travels back to the people who raised it. Without that feedback, escalation only creates noise.",
-    note: "Tracked resolution restores trust and improves the next decision.",
+    kicker: "Resolution Flow — where the loop actually closes",
+    text: "Escalation without a tracked resolution just generates noise, and repeated noise erodes a team's trust that the system works at all. This component defines, for every level of escalation, who holds the authority to decide, how that decision gets documented, and — critically — how the resolution gets communicated back down to the people who raised it in the first place. PMBOK® 8 treats effective feedback mechanisms as a core governance component precisely because they let decision-makers see whether their calls actually worked, and adjust the next time around.",
+    note: "Effective feedback lets decision-makers see whether their calls worked and adjust the next time around.",
     image: resolutionImg,
   },
 ];
@@ -84,25 +84,25 @@ const framework = [
 const approaches = {
   Predictive: {
     icon: ShieldCheck,
-    tag: "FORMAL",
-    title: "Structured, documented, hierarchical",
-    text: "Issues move through phase gates, change control boards, and written requests. Formal approval chains and investment control points suit complex or regulated projects where the paper trail is protection.",
+    tag: "Predictive",
+    title: "Formal and hierarchical almost by design",
+    text: "Here, escalation is formal and hierarchical almost by design. Issues surface through structured, documented channels — phase gate reviews, change control boards, formal escalation requests submitted in writing. The governance model is comprehensive on purpose, with defined investment control points and clear formal approval chains at every stage. This weight is intentional: it suits large, complex, or regulated projects where a wrong decision carries serious downstream consequences, and where a paper trail isn't bureaucracy — it's protection.",
     path: ["Team", "PM", "CCB", "Sponsor"],
     image: predictiveImg,
   },
   Adaptive: {
     icon: RefreshCw,
-    tag: "EMBEDDED",
-    title: "Fast feedback inside team rhythm",
-    text: "Stand-ups surface blockers quickly; retrospectives reveal systemic issues. Self-governing teams resolve most friction locally, escalating only genuinely high-impact risks.",
+    tag: "Adaptive",
+    title: "Escalation is built into the team's daily rhythm",
+    text: "Here, escalation isn't a separate event — it's built into the team's daily rhythm. Daily stand-ups surface blockers almost as they happen. Sprint retrospectives catch the systemic issues that a single stand-up would miss. The vast majority of problems never leave the team, resolved inside its own self-organizing authority. Escalation beyond the team is reserved for genuinely high-impact risks — not every friction point that comes up during a sprint. PMBOK® 8 describes self-governed teams as collectively accountable for their own performance, held together by shared objectives and tight feedback loops that prevent decisions from fragmenting across individuals.",
     path: ["Stand-up", "Team", "Backlog", "Escalate only if high-impact"],
     image: adaptiveImg,
   },
   Hybrid: {
     icon: GitBranch,
-    tag: "DUAL-CHANNEL",
-    title: "Two mechanisms, one clear boundary",
-    text: "Sprint-level blockers stay with the team while strategic, regulatory, and financial decisions use the formal chain. The PM actively maintains the line between both routes.",
+    tag: "Hybrid",
+    title: "Both mechanisms run side by side",
+    text: "Here, both mechanisms run side by side, and that coexistence is the whole point. Formal escalation still handles strategic, regulatory, or financial decisions — the stakes haven't changed just because part of the project is agile. Day-to-day blockers, meanwhile, get resolved at the team level inside sprint cadence, the same way they would in a fully adaptive environment. What makes hybrid genuinely hard is that the project manager has to actively maintain the line between the two channels — because the moment a team-level blocker gets routed into the formal chain (or vice versa), you've recreated the exact bottleneck the escalation framework was built to eliminate.",
     path: ["Team blockers → sprint", "Strategic issues → sponsor"],
     image: hybridImg,
   },
@@ -117,20 +117,20 @@ const quiz1 = {
     "Yes — thresholds don’t apply to schedule issues",
   ],
   correct: 1,
-  yes: "Right — the threshold hasn’t been crossed. The path exists, but nothing has triggered it.",
-  no: "Not quite. The threshold decides whether an issue is eligible to leave the team’s desk; this one hasn’t reached it.",
+  yes: "Right — the threshold hasn't been crossed yet. The path exists, but nothing has triggered it. Escalating regardless of severity defeats the entire purpose of setting a threshold in the first place.",
+  no: "Not quite — the threshold is what decides whether this issue is even eligible to leave the team's desk, and this one hasn't reached that point.",
 };
 const quiz2 = {
   q: "A hybrid team’s daily blocker keeps getting raised at the monthly steering committee. What’s the real problem?",
   answers: [
     "The committee meets too rarely",
-    "The team doesn’t understand the channels",
+    "The team doesn't understand escalation channels — day-to-day blockers belong at the team level",
     "The blocker is too minor to matter",
     "Hybrid projects shouldn’t have steering committees",
   ],
   correct: 1,
-  yes: "Exactly. Day-to-day blockers belong in the sprint channel; the formal route is for strategic issues.",
-  no: "Look at which channel failed. A team-level blocker was sent into a strategic, monthly-cadence body.",
+  yes: "Exactly — in hybrid environments, the PM's real job is keeping the two channels distinct. Routing a team-level blocker into a strategic, monthly-cadence body creates the same delay the escalation framework exists to prevent.",
+  no: "Look again at what's actually failing here — it isn't the committee's schedule, it's which channel this issue was sent through in the first place.",
 };
 
 function tone(kind, enabled) {
@@ -197,10 +197,10 @@ function Quiz({ data, onDone, onFinish }) {
         >
           {picked === data.correct
             ? data.yes
-            : `${data.no} Choose another answer to try again.`}
+            : data.no}
         </motion.p>
       )}
-      {picked === data.correct && (
+      {picked !== null && (
         <button className="finish-check" onClick={() => { setClosed(true); onFinish?.(); }}>
           Finish check <ArrowRight size={18} />
         </button>
@@ -438,30 +438,20 @@ function App() {
                 {page === 0 && (
                   <>
                     <div className="copy">
-                      <p className="eyebrow">
-                        LESSON 3.1.3 · THE GOVERNANCE GAP
-                      </p>
-                      <h1>
-                        <span className="headline-line">When nobody knows</span>
-                        <br />
-                        <em className="headline-line">whose call it is.</em>
-                      </h1>
-                      <p>
-                        Three weeks in, a vendor flags a cost overrun.<br />
-                        The technical lead believes it can be absorbed.<br />
-                        The sponsor has not been informed. Nobody is wrong.
-                      </p>
+                      <p className="eyebrow">LESSON 3.1.3</p>
+                      <h1>Outline Escalation Paths and Thresholds</h1>
+                      <p>Picture a project three weeks in. A vendor just flagged a cost overrun. The technical lead thinks it's fine to absorb. The sponsor hasn't been told. Nobody's actually wrong — nobody knows whose call this is.</p>
                       <button
                         className="primary"
                         onClick={() => {
                           setReveal(true);
                           setDetail({
-                            title: "The missing decision map",
-                            kicker: "WHY ESCALATION EXISTS",
+                            title: "That moment is the exact gap escalation paths and thresholds exist to close",
+                            kicker: "CLICK-TO-REVEAL",
                             icon: Route,
                             image: governanceGapDrawerImg,
-                            text: "Issues aren’t the risk. Every project has them. The real risk is a project that has not decided in advance who owns a problem, how far it can travel before someone else must step in, and where it lands when it does.",
-                            note: "Define the owner, the threshold, and the destination before the issue occurs.",
+                            text: "That moment — the pause where a manageable issue quietly turns into a stalled one — is the exact gap escalation paths and thresholds exist to close. Issues aren't the risk. Every project has them; that part is guaranteed. The real risk is a project that hasn't already decided, in advance, who owns a problem, how far it can travel before someone else needs to step in, and where it lands when it does. This lesson builds that decision-making map before you ever need it — and shows how the map itself changes shape depending on whether your project runs predictive, adaptive, or hybrid.",
+                            note: "This lesson builds that decision-making map before you ever need it.",
                           });
                           tone("tap", sound);
                         }}
@@ -477,14 +467,9 @@ function App() {
                 )}
                 {page === 1 && (
                   <div className="wide">
-                    <p className="eyebrow">TWO TERMS · ONE SYSTEM</p>
-                    <h2>
-                      The map and the tripwire answer different questions.
-                    </h2>
-                    <p className="lede">
-                      Flip both cards. Mixing these terms is how escalation
-                      frameworks fail quietly.
-                    </p>
+                    <p className="eyebrow">SCREEN 2</p>
+                    <h2>Two Terms, One System</h2>
+                    <p className="lede">Two words get used almost interchangeably in project governance conversations — "path" and "threshold" — but they're answering two completely different questions, and mixing them up is how escalation frameworks fail quietly.</p>
                     <div className="flip-grid">
                       {[
                         {
@@ -492,14 +477,14 @@ function App() {
                           q: "WHO DOES THIS GO TO?",
                           icon: Route,
                           image: escalationPathCard,
-                          body: "The pre-agreed route an issue travels: team member → project manager → sponsor → steering committee. Each stop carries more authority than the last.",
+                          body: "Think of this as the map, not the trigger. It's the pre-agreed route an issue travels once it needs to move — team member, to project manager, to sponsor, to steering committee — each stop carrying more authority than the last. The path exists so nobody has to improvise, mid-crisis, who's supposed to pick up the phone. It answers one question only: who does this go to?",
                         },
                         {
                           name: "Escalation threshold",
                           q: "WHEN DOES IT LEAVE MY DESK?",
                           icon: BellRing,
                           image: escalationThresholdCard,
-                          body: "The specific point — in cost, schedule, exposure, or consequence — where the current owner can no longer absorb an issue and it has to move.",
+                          body: "This is the tripwire, not the map. A threshold is the specific point — defined in cost, schedule slippage, risk exposure, or strategic consequence — where an issue stops being something the current owner can absorb and starts being something that has to move. Without a defined threshold, \"when do I escalate\" becomes a judgment call made under pressure, which is exactly when judgment is least reliable. It answers: when does it leave my desk?",
                         },
                       ].map((c, i) => {
                         const on = flips.includes(i),
@@ -536,6 +521,7 @@ function App() {
                     </div>
                     {flips.length === 2 && (
                       <>
+                        <div className="backing">PMBOK® 8 frames escalation as a governance component that carries particular weight in predictive environments and hierarchical organizations — settings where decision-making authority deliberately sits above the immediate project team, held by people with the positional power to clear obstacles, resolve conflict, and protect the project's odds of success in ways the team alone cannot.</div>
                         {!q1 && <button className="knowledge-check-cta" onClick={() => setQuizOpen(true)}>
                           <Target size={18} /> Start knowledge check <ArrowRight size={18} />
                         </button>}
@@ -546,11 +532,9 @@ function App() {
                 )}
                 {page === 2 && (
                   <div className="wide">
-                    <p className="eyebrow">THE FOUR-PART FRAMEWORK</p>
-                    <h2>Four moving parts. One closed loop.</h2>
-                    <p className="lede">
-                      Open each component to build the full system.
-                    </p>
+                    <p className="eyebrow">SCREEN 3</p>
+                    <h2>The Four-Part Framework</h2>
+                    <p className="lede">Zoom out from any single issue, and every functioning escalation system — regardless of industry or project size — is built from the same four moving parts, working together like gears in the same mechanism. Click each one to see what it actually does.</p>
                     <div className="direct-card-grid" aria-label="Four-part framework selector">
                         {framework.map((item, index) => {
                           const Icon = item.icon;
@@ -578,9 +562,9 @@ function App() {
                 )}
                 {page === 3 && (
                   <div className="wide">
-                    <p className="eyebrow">TAILOR THE ROUTE</p>
-                    <h2>Same framework. Different operating rhythm.</h2>
-                    <p className="lede">Choose an operating rhythm, then open its story to see how escalation travels.</p>
+                    <p className="eyebrow">SCREEN 4</p>
+                    <h2>How Escalation Shifts by Approach</h2>
+                    <p className="lede">The four components you just explored don't change — but the rhythm they run on shifts completely depending on how the project is being delivered. Toggle between the three to see how the same framework plays out differently in practice.</p>
                     <div className="direct-card-grid three-up" aria-label="Delivery approaches">
                       {Object.keys(approaches).map((k, index) => (
                         <button key={k} className={`direct-detail-card ${approachSeen.includes(k) ? "visited" : ""}`} onClick={() => {setApproach(k);setDetail(approaches[k]);}}>
@@ -598,11 +582,8 @@ function App() {
                   <div className="final">
                     <img className="lesson-illustration final-illustration" src={lowestLevelImg} alt="A team issue stops with the project manager who has the information and authority to decide, while the sponsor remains available above" />
                     <div className="final-copy">
-                      <p className="eyebrow">EXAM LENS · CLOSE THE LOOP</p>
-                      <h2>
-                        Resolve the issue at the <em>lowest level</em> that
-                        holds both the authority and the information to decide.
-                      </h2>
+                      <p className="eyebrow">SCREEN 5 · SYNTHESIS (EXAM LENS)</p>
+                      <h2>Strip away every example from this lesson, and one idea sits underneath all of it — one worth carrying into the exam room and into every project you'll ever run.</h2>
                       {!done ? (
                         <button
                           className="primary"
@@ -611,28 +592,20 @@ function App() {
                             tone("success", sound);
                           }}
                         >
-                          Reveal the exam rules <Sparkles size={18} />
+                          Reveal the synthesis <Sparkles size={18} />
                         </button>
                       ) : (
                         <motion.div
                           initial={{ opacity: 0, y: 14 }}
                           animate={{ opacity: 1, y: 0 }}
                         >
+                          <p className="exam-synthesis">Escalation isn't a sign that a project expects to fail. It's a sign that a project expects reality — and reality includes surprises no one can fully plan around. PMBOK® 8's principle here is consistent and worth committing to memory: resolve issues at the lowest level that holds both the authority and the information to decide. Escalating a genuinely above-threshold issue is responsible governance, not a failure to cope. Sitting on one, hoping it resolves itself, is not diligence — it's a governance failure with a delay built in.</p>
+                          <h3>Exam-relevant enablers to remember:</h3>
                           <ul>
-                            <li>
-                              Define paths and thresholds before the crisis.
-                            </li>
-                            <li>
-                              Tailor the route: formal, embedded, or
-                              deliberately dual-channel.
-                            </li>
-                            <li>
-                              The sponsor is the PM’s primary escalation point.
-                            </li>
-                            <li>
-                              Resolution flow closes the loop; feedback prevents
-                              noise.
-                            </li>
+                            <li>Define paths and thresholds before the project needs them — not while it's already in crisis</li>
+                            <li>Tailor the approach: formal and documented for predictive, embedded in team ritual for adaptive, deliberately dual-channel for hybrid</li>
+                            <li>The sponsor is the PM's primary escalation point (PMBOK® 8) — the lever for resources and cross-functional ties</li>
+                            <li>Resolution flow is what closes the loop — without feedback back to the team, there's no governance, just noise</li>
                           </ul>
                         </motion.div>
                       )}
