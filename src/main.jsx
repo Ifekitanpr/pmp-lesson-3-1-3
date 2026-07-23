@@ -25,6 +25,7 @@ import {
   X,
 } from "lucide-react";
 import "./styles.css";
+import SynthesisModal from "./SynthesisModal";
 import escalationGapImg from "./assets/illustrations/escalation-gap-v4.png";
 import governanceGapDrawerImg from "./assets/illustrations/governance-gap-drawer.png";
 import levelsImg from "./assets/illustrations/framework-levels.png";
@@ -278,6 +279,7 @@ function App() {
     [approachSeen, setApproachSeen] = useState([]),
     [q2, setQ2] = useState(false),
     [done, setDone] = useState(false),
+    [synthesisOpen, setSynthesisOpen] = useState(false),
     [menu, setMenu] = useState(false),
     [quizOpen, setQuizOpen] = useState(false),
     [detail, setDetail] = useState(null);
@@ -584,31 +586,9 @@ function App() {
                     <div className="final-copy">
                       <p className="eyebrow">SCREEN 5 · SYNTHESIS (EXAM LENS)</p>
                       <h2>Strip away every example from this lesson, and one idea sits underneath all of it — one worth carrying into the exam room and into every project you'll ever run.</h2>
-                      {!done ? (
-                        <button
-                          className="primary"
-                          onClick={() => {
-                            setDone(true);
-                            tone("success", sound);
-                          }}
-                        >
-                          Reveal the synthesis <Sparkles size={18} />
-                        </button>
-                      ) : (
-                        <motion.div
-                          initial={{ opacity: 0, y: 14 }}
-                          animate={{ opacity: 1, y: 0 }}
-                        >
-                          <p className="exam-synthesis">Escalation isn't a sign that a project expects to fail. It's a sign that a project expects reality — and reality includes surprises no one can fully plan around. PMBOK® 8's principle here is consistent and worth committing to memory: resolve issues at the lowest level that holds both the authority and the information to decide. Escalating a genuinely above-threshold issue is responsible governance, not a failure to cope. Sitting on one, hoping it resolves itself, is not diligence — it's a governance failure with a delay built in.</p>
-                          <h3>Exam-relevant enablers to remember:</h3>
-                          <ul>
-                            <li>Define paths and thresholds before the project needs them — not while it's already in crisis</li>
-                            <li>Tailor the approach: formal and documented for predictive, embedded in team ritual for adaptive, deliberately dual-channel for hybrid</li>
-                            <li>The sponsor is the PM's primary escalation point (PMBOK® 8) — the lever for resources and cross-functional ties</li>
-                            <li>Resolution flow is what closes the loop — without feedback back to the team, there's no governance, just noise</li>
-                          </ul>
-                        </motion.div>
-                      )}
+                      <button className="primary" disabled={done} onClick={() => setSynthesisOpen(true)}>
+                        {done ? "Synthesis reviewed" : "Reveal the synthesis"} <Sparkles size={18} />
+                      </button>
                     </div>
                   </div>
                 )}
@@ -656,6 +636,11 @@ function App() {
       </section>
       <AnimatePresence>
         {detail && <DetailSheet detail={detail} modal={page === 0 || page === 2 || page === 3} onClose={() => setDetail(null)} onRead={markDetailRead} />}
+        {synthesisOpen && <SynthesisModal title="Resolve at the lowest level with authority and information" onClose={() => setSynthesisOpen(false)} onReviewed={() => { setDone(true); setSynthesisOpen(false); tone("success", sound); }}>
+          <p>Escalation isn't a sign that a project expects to fail. It's a sign that a project expects reality — and reality includes surprises no one can fully plan around. PMBOK® 8's principle here is consistent and worth committing to memory: resolve issues at the lowest level that holds both the authority and the information to decide. Escalating a genuinely above-threshold issue is responsible governance, not a failure to cope. Sitting on one, hoping it resolves itself, is not diligence — it's a governance failure with a delay built in.</p>
+          <h4>Exam-relevant enablers to remember:</h4>
+          <ul><li>Define paths and thresholds before the project needs them — not while it's already in crisis</li><li>Tailor the approach: formal and documented for predictive, embedded in team ritual for adaptive, deliberately dual-channel for hybrid</li><li>The sponsor is the PM's primary escalation point (PMBOK® 8) — the lever for resources and cross-functional ties</li><li>Resolution flow is what closes the loop — without feedback back to the team, there's no governance, just noise</li></ul>
+        </SynthesisModal>}
       </AnimatePresence>
     </div>
   );
