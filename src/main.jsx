@@ -26,18 +26,19 @@ import {
 } from "lucide-react";
 import "./styles.css";
 import SynthesisModal from "./SynthesisModal";
-import escalationGapImg from "./assets/illustrations/escalation-gap-v4.png";
-import governanceGapDrawerImg from "./assets/illustrations/governance-gap-drawer.png";
-import levelsImg from "./assets/illustrations/framework-levels.png";
-import triggersImg from "./assets/illustrations/framework-triggers.png";
-import protocolsImg from "./assets/illustrations/framework-protocols.png";
-import resolutionImg from "./assets/illustrations/framework-resolution.png";
-import escalationPathCard from "./assets/illustrations/escalation-path-card.png";
-import escalationThresholdCard from "./assets/illustrations/escalation-threshold-card.png";
-import predictiveImg from "./assets/illustrations/approach-predictive.png";
-import adaptiveImg from "./assets/illustrations/approach-adaptive.png";
-import hybridImg from "./assets/illustrations/approach-hybrid.png";
-import lowestLevelImg from "./assets/illustrations/lowest-level-resolution.png";
+import { IllustrationPlayer } from "./components/IllustrationPlayer";
+import escalationGapImg from "./assets/illustrations/escalation-gap-v4.svg?raw";
+import governanceGapDrawerImg from "./assets/illustrations/governance-gap-drawer.svg?raw";
+import levelsImg from "./assets/illustrations/framework-levels.svg?raw";
+import triggersImg from "./assets/illustrations/framework-triggers.svg?raw";
+import protocolsImg from "./assets/illustrations/framework-protocols.svg?raw";
+import resolutionImg from "./assets/illustrations/framework-resolution.svg?raw";
+import escalationPathCard from "./assets/illustrations/escalation-path-card.svg?raw";
+import escalationThresholdCard from "./assets/illustrations/escalation-threshold-card.svg?raw";
+import predictiveImg from "./assets/illustrations/approach-predictive.svg?raw";
+import adaptiveImg from "./assets/illustrations/approach-adaptive.svg?raw";
+import hybridImg from "./assets/illustrations/approach-hybrid.svg?raw";
+import lowestLevelImg from "./assets/illustrations/lowest-level-resolution.svg?raw";
 
 const screens = [
   "The gap",
@@ -255,7 +256,7 @@ function DetailSheet({ detail, onClose, onRead, modal = false }) {
     <motion.div className={`modal-backdrop ${modal ? "focused-modal-backdrop" : ""}`} initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{duration:.22}} onClick={onClose}>
       <motion.aside className={modal ? "detail-sheet detail-modal" : "detail-sheet"} initial={modal ? {opacity:0,y:28,scale:.96} : {x:"100%"}} animate={modal ? {opacity:1,y:0,scale:1} : {x:0}} exit={modal ? {opacity:0,y:18,scale:.97} : {x:"100%"}} transition={{ type: "spring", stiffness: 300, damping: 30, mass:.8 }} onClick={(event) => event.stopPropagation()} role="dialog" aria-modal="true">
         <button className="drawer-close" onClick={onClose} aria-label="Close detail"><X size={22} /></button>
-        {detail.image ? <img className="drawer-illustration" src={detail.image} alt="" /> : Icon && <div className="sheet-icon"><Icon /></div>}
+        {detail.image ? <IllustrationPlayer className="drawer-illustration" svg={detail.image} /> : Icon && <div className="sheet-icon"><Icon /></div>}
         <p className="mini-label">{detail.kicker || detail.tag}</p>
         <h3>{detail.name || detail.title}</h3>
         <p>{detail.text}</p>
@@ -449,7 +450,6 @@ function App() {
                           setReveal(true);
                           setDetail({
                             title: "That moment is the exact gap escalation paths and thresholds exist to close",
-                            kicker: "CLICK-TO-REVEAL",
                             icon: Route,
                             image: governanceGapDrawerImg,
                             text: "That moment — the pause where a manageable issue quietly turns into a stalled one — is the exact gap escalation paths and thresholds exist to close. Issues aren't the risk. Every project has them; that part is guaranteed. The real risk is a project that hasn't already decided, in advance, who owns a problem, how far it can travel before someone else needs to step in, and where it lands when it does. This lesson builds that decision-making map before you ever need it — and shows how the map itself changes shape depending on whether your project runs predictive, adaptive, or hybrid.",
@@ -464,12 +464,11 @@ function App() {
                         <ArrowRight size={18} />
                       </button>
                     </div>
-                    <img className="lesson-illustration hero-illustration governance-art" src={escalationGapImg} alt="One raised issue reaches the vendor, technical lead, and sponsor but ends at an unassigned decision owner" />
+                    <IllustrationPlayer className="lesson-illustration hero-illustration governance-art" svg={escalationGapImg} />
                   </>
                 )}
                 {page === 1 && (
                   <div className="wide">
-                    <p className="eyebrow">SCREEN 2</p>
                     <h2>Two Terms, One System</h2>
                     <p className="lede">Two words get used almost interchangeably in project governance conversations — "path" and "threshold" — but they're answering two completely different questions, and mixing them up is how escalation frameworks fail quietly.</p>
                     <div className="flip-grid">
@@ -493,7 +492,7 @@ function App() {
                           I = c.icon;
                         return (
                           <div className="illustrated-flip" key={c.name}>
-                          <img className="flip-card-art" src={c.image} alt="" />
+                          <IllustrationPlayer className="flip-card-art" svg={c.image} />
                           <button
                             className={`flip ${on ? "flipped" : ""}`}
                             onClick={() =>
@@ -534,7 +533,6 @@ function App() {
                 )}
                 {page === 2 && (
                   <div className="wide">
-                    <p className="eyebrow">SCREEN 3</p>
                     <h2>The Four-Part Framework</h2>
                     <p className="lede">Zoom out from any single issue, and every functioning escalation system — regardless of industry or project size — is built from the same four moving parts, working together like gears in the same mechanism. Click each one to see what it actually does.</p>
                     <div className="direct-card-grid" aria-label="Four-part framework selector">
@@ -564,7 +562,6 @@ function App() {
                 )}
                 {page === 3 && (
                   <div className="wide">
-                    <p className="eyebrow">SCREEN 4</p>
                     <h2>How Escalation Shifts by Approach</h2>
                     <p className="lede">The four components you just explored don't change — but the rhythm they run on shifts completely depending on how the project is being delivered. Toggle between the three to see how the same framework plays out differently in practice.</p>
                     <div className="direct-card-grid three-up" aria-label="Delivery approaches">
@@ -582,9 +579,9 @@ function App() {
                 )}
                 {page === 4 && (
                   <div className="final">
-                    <img className="lesson-illustration final-illustration" src={lowestLevelImg} alt="A team issue stops with the project manager who has the information and authority to decide, while the sponsor remains available above" />
+                    <IllustrationPlayer className="lesson-illustration final-illustration" svg={lowestLevelImg} />
                     <div className="final-copy">
-                      <p className="eyebrow">SCREEN 5 · SYNTHESIS (EXAM LENS)</p>
+                      <p className="eyebrow">SYNTHESIS (EXAM LENS)</p>
                       <h2>Strip away every example from this lesson, and one idea sits underneath all of it — one worth carrying into the exam room and into every project you'll ever run.</h2>
                       <button className="primary" disabled={done} onClick={() => setSynthesisOpen(true)}>
                         {done ? "Synthesis reviewed" : "Reveal the synthesis"} <Sparkles size={18} />
